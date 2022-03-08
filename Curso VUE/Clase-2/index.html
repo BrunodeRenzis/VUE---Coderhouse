@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <title>Clase 2</title>
+</head>
+
+<body>
+    <!--BUCLE FOR-->
+    <div id="app">
+        <ul>
+            <li v-for="fruta of frutas">{{fruta}}</li>
+        </ul>
+        <ol>
+            <li v-for="curso of cursos">
+                {{curso.nombre}} - {{curso.precio}} <span v-if="curso.disponible"> Curso disponible!</span>
+                <span v-else>No hay más cupos</span>
+
+            </li>
+        </ol>
+        <!--V-model nos prmite conectar html al js, lo qu se ingresa acá puede ingresar a la data-->
+        <input type="text" v-model="nuevosCursos" @keyup.enter="agregarCurso" placeholder="Ingrese nombre del curso">
+        <button @click="agregarCurso">
+            Agregar Curso
+        </button>
+    </div>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                frutas: ['Manzana', 'Banana', 'Naranja'],
+                cursos: [{
+                    nombre: 'Desarrollo Web',
+                    precio: 5000,
+                    disponible: true
+                }, {
+                    nombre: 'Desarrollo Vue',
+                    precio: 5000,
+                    disponible: false
+                }],
+                nuevosCursos: '',
+            },
+            methods: {
+                agregarCurso() {
+                    this.cursos.push({
+                        nombre: this.nuevosCursos,
+                        precio: 26000,
+                        disponible: true
+                    });
+                    this.nuevosCursos = "";
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgba(11, 185, 238, 0.5);
+}
+
+#app{
+    position: relative;
+    width: 100vw;
+    height: 15vh;
+}
+
+.contador{
+    width: 50%;
+    height: 50%;
+    display: flex;
+    position: absolute;
+    flex-direction: row;
+    margin-top: 20%;
+    margin-left: 26%;
+}
+
+.contadorNumero{
+    padding-left: 24.5vw;
+    height: min-content;
+    position: absolute;
+    font-size: xxx-large;
+    margin-top: -3%;
+}
+
+.contenedorNumero{
+    display: flex;
+}
+
+.contenedorBotones{
+    width: 50%;
+}
+
+.boton{
+    border-radius: 10%;
+    width: 50%;
+    height: 30%;
+    margin-top: 8%;
+    margin-left: 19vw;
+    padding: 0rem 4rem 0rem 4rem;
+}
+
+#aumentar{
+    background-color: rgba(207, 122, 11,0.3);
+}
+
+#disminuir{
+
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <title>Clase 1</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- Directivas -->
+        <!--v-text permite un trabajo similr a la intrpolación
+        La interpolación renderiza un fragmento de texto mientras que
+        la dirctiva v-text renderiza todo el contenido-->
+        <p v-text="text"></p>
+
+        <!--v-html pemite imprimir código HML es el equivlente al innerHTML-->
+        <ul v-html="items"></ul>
+
+        <!--v-bind permite unir valores de nuestro data a un atributo-->
+        <img v-bind:src="photoUrl" v-bind:alt="alt">
+        <!--v-bind dinamico se puede cambiar el volor del atributo que se va a utilizar
+        v-bind se puede aplicar a cualquier atributo-->
+        <img v-bind:src="photoUrl" v-bind:[key]="alt">
+        <p v-bind:style="myStyle">Actualizo color</p>
+        <!--Quitar después v-bind ydejar solo los : , v-bind está implícito en los :-->
+
+        <!--Methods y onClick-->
+        <button type="button" v-on:click="saludar()">Clickeame gato</button>
+        <!--on cli accediendo a la infrmación del evento-->
+        <button type="button" v-on:click="saludarDos($event)">Clickeame gato</button>
+        <!--Acer a data desde -->
+        <button type="button" v-on:click="showName()">Clickeame gato</button>
+        <!--Propiedades computadas:
+        Las propiddes computadas son reactivas, es decir que cuando el valor de data cambie, la computada va a cambiar y devolver el nuevo valor. 
+        Estas propieddes no pueden tener parámetros, deben tener return y tienen cache
+        -->
+        <div class="content">{{nombreCompleto}}</div>
+    </div>
+    <script>
+        //InstanciarVUE
+        const app = new Vue({
+            el: '#app',
+            data: {
+                text: 'clase 1',
+                items: '<li>Mis srvicios</li>',
+                photoUrl: 'https://www.placecage.com/200/300',
+                alt: 'Nicolas Cage',
+                key: 'alt',
+                myStyle: 'color:green',
+                firstName: 'Bruno',
+                lastName: 'de Renzis'
+            },
+            methods: {
+                saludar() {
+                    alert('Hola');
+                },
+                saludarDos(event) {
+                    alert('Coordenadas del botón' + event.screenX + '' +
+                        event.screenY);
+                },
+                showName() {
+                    alert(this.firstName + ' ' + this.lastName);
+                }
+            },
+            computed: {
+                nombreCompleto() {
+                    return this.firstName + ' ' + this.lastName
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
+
+</html>
+
+</html>
+
+</html>

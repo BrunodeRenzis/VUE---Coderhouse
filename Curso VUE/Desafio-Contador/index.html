@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="contador">
+            <div class="contenedorNumero">
+                <p class="contadorNumero">{{contador}}</p>
+                <div class="contenedorBotones">
+                    <button id="disminuir" class="boton" type="button" v-on:click="contador--">Disminuir</button>
+                    <button id="aumentar" class="boton" type="button" v-on:click="contador++">Aumentar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        //InstanciarVUE
+        const app = new Vue({
+            el: '#app',
+            data: {
+                contador: 0
+            },
+            methods: {
+
+            },
+            computed: {
+
+            }
+        })
+    </script>
+</body>
+
+</html>
